@@ -12,6 +12,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     // ... metoda ekzistuese ...
 
     // Metoda për kërkim sipas emrit ose brandit
-    @Query("SELECT c FROM Car c WHERE LOWER(c.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(c.brand) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    @Query("SELECT c FROM Car c WHERE LOWER(c.make) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(c.model) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<Car> searchByKeyword(@Param("keyword") String keyword);
 }
